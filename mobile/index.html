@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>DataForge</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div class="brand">◆ <b>DATAFORGE</b><small>visual SQLite studio</small></div><button data-action="import">＋ Import</button><button data-action="blank">Blank</button><button class="run" data-action="run">▶ Run</button><button class="more" data-action="menu">⋮</button></header>
+<input type="file" id="fileInput" accept=".csv,.tsv,.json,application/json,text/csv" hidden>
+<nav><button class="active" data-tab="build">BUILD</button><button data-tab="transform">TRANSFORM</button><button data-tab="result">RESULT</button><button data-tab="chart">CHART</button><button data-tab="sql">SQL</button></nav>
+<main>
+ <section id="build" class="page active"><div id="sampleBanner" class="tip sample-tip"><b>DEMO PROJECT</b> — Customers, Orders, and Products are preloaded and joined. Open Transform to inspect the prepared query, then press Run.</div><div class="tip">Tap a table title to make it the main work table. To join, tap one column port and then a column in another table.</div><div id="grid" class="grid"></div></section>
+ <section id="transform" class="page"><div class="work-head"><div><label>WORK TABLE</label><select id="mainTable"></select></div><label class="check"><input id="distinct" type="checkbox"> Remove duplicates</label><div><label>LIMIT</label><input id="limit" type="number" value="1000"></div></div>
+  <div class="transform-grid">
+   <article><h3>JOIN LINKS <button data-action="addJoin">＋</button></h3><div id="joins" class="stack"></div></article>
+   <article><h3>OUTPUT / AGGREGATE <button data-action="addColumn">＋</button></h3><div id="outputs" class="stack"></div></article>
+   <article><h3>FILTERS <button data-action="addFilter">＋</button></h3><div id="filters" class="stack"></div></article>
+   <article><h3>GROUP & SORT <button data-action="group">Group</button><button data-action="sort">Sort</button></h3><div id="groups" class="stack"></div></article>
+  </div>
+  <div class="actions"><button data-action="saveQuery">Save query</button><button data-action="materialize">Save as table</button></div>
+ </section>
+ <section id="result" class="page"><div class="resultbar"><b id="resultCount">No result yet</b><button data-action="exportCsv">CSV</button><button data-action="exportJson">JSON</button></div><div id="resultTable" class="table-wrap"></div></section>
+ <section id="chart" class="page"><div class="chartbar"><select id="chartType"><option value="bar">Bar</option><option value="line">Line</option><option value="pie">Pie</option></select><select id="chartLabel"></select><select id="chartValue"></select><button data-action="drawChart">Draw</button></div><canvas id="chartCanvas"></canvas></section>
+ <section id="sql" class="page"><div class="resultbar"><b>Generated SQL</b><button data-action="copySql">Copy</button></div><pre id="sqlText"></pre></section>
+</main>
+<footer><span id="status">Starting SQLite…</span><span id="dbSize"></span></footer>
+<div id="sheet" class="sheet"><div class="sheet-box"><h2>Project & Data</h2><button data-action="import">＋ Import CSV / JSON</button><button data-action="blank">＋ Create blank table</button><button data-action="newProject">New project</button><button data-action="exportDb">Export SQLite database</button><button data-action="importDb">Open SQLite database</button><button data-action="savedQueries">Saved queries</button><button data-action="closeSheet">Close</button></div></div>
+<input type="file" id="dbInput" accept=".sqlite,.db,application/vnd.sqlite3" hidden>
+<script src="sql.js"></script><script src="app.js"></script>
+</body></html>

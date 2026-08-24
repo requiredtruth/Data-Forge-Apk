@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+mobile/node_modules/
+mobile/dist/
+mobile/sql.js
+releases/*.apk
+releases/*.sha256
+*.jks
+*.keystore
+.signing/
