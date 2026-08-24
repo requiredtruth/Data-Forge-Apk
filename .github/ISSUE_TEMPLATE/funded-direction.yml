@@ -1,0 +1,36 @@
+name: Funded direction
+description: Reference a confirmed public donation and request development priority.
+title: "[Funded direction] "
+labels: []
+body:
+  - type: dropdown
+    id: asset
+    attributes:
+      label: Asset and network
+      options:
+        - Bitcoin
+        - Ethereum or another EVM network
+        - Dogecoin
+    validations:
+      required: true
+  - type: input
+    id: transaction
+    attributes:
+      label: Public transaction hash
+      description: Do not include a private key, seed phrase, account credential, or personal information.
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: Requested direction
+      description: Explain the feature, bug, or release work you want prioritized.
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Acknowledgement
+      options:
+        - label: I understand that a donation does not guarantee implementation, support, ownership, returns, preferential treatment, or a deadline.
+          required: true
