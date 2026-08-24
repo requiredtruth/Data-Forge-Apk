@@ -68,3 +68,12 @@ If DataForge saves you time, see [SUPPORT.md](SUPPORT.md). A confirmed public do
 ## License
 
 MIT. The bundled SQL.js/SQLite component retains its upstream license notice in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+
+## Install and run
+
+```sh
+chmod +x install.sh run.sh
+./install.sh
+./run.sh --help
+```
